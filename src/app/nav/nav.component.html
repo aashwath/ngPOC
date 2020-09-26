@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light border shadow-sm py-md-0"
+		 [class.fixed-bottom]="isNavbarBottom">
+	<a class="navbar-brand font-weight-bold"
+		 routerLink="home">POC</a>
+	<button class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse"
+			 id="navbarNav">
+		<ul class="navbar-nav d-flex justify-content-around w-100">
+			<li class="nav-item">
+				<a class="nav-link"
+					 routerLink="services"
+					 routerLinkActive="active">Services</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link"
+					 routerLink="observables"
+					 routerLinkActive="active">Obs/Promises</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link"
+					 routerLink="forms/pipe-template-form"
+					 routerLinkActive="active">Forms</a>
+			</li>
+			<li class="nav-item d-flex align-items-center"
+					*ngIf="accessGranted">
+				<button type="button"
+								routerLink="home"
+								class="btn btn-dark"
+								(click)="revokeUserAccess()">Exit
+				</button>
+			</li>
+		</ul>
+	</div>
+</nav>

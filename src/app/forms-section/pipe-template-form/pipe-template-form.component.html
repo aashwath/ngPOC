@@ -1,0 +1,19 @@
+<div class="w-50 mx-auto my-5">
+	<form #pipeForm="ngForm">
+		<div class="form-group">
+			<label for="telephoneNumber">Enter a 10 digit number</label>
+			<input type="text"
+						 name="telephone"
+						 [(ngModel)]="telelphoneNo"
+						 class="form-control"
+						 maxlength="10"
+						 id="telephoneNumber"
+						 (keydown)="validateInput($event)">
+		</div>
+		<button type="reset"
+						class="btn btn-dark">Reset</button>
+	</form>
+	<p *ngIf="telelphoneNo"
+		 class="my-4">Formatted: <span
+					class="d-block d-lg-inline"><b>{{telelphoneNo | telephonePipe}}</b></span></p>
+</div>

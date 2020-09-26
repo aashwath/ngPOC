@@ -1,0 +1,11 @@
+<div class="text-center my-4">
+	<app-info [listOfImplementations]="implementationList"></app-info>
+	<p class="text-dark">The <b>Services</b> section will fetch data from News API and display the
+		latest headlines. Click on "Fetch" below.</p>
+	<button type="button"
+					class="btn btn-outline-dark"
+					(click)="getNewsItems()">Fetch
+	</button>
+</div>
+
+<ng-template viewHost></ng-template>

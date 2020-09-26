@@ -1,0 +1,43 @@
+<app-info [listOfImplementations]="implementations"></app-info>
+<h1 class="display-4 mt-3 mb-4 text-center">Pokemons ranked 1-20</h1>
+<div class="accordion"
+		 id="PokemonAccordion">
+	<div class="card"
+			 *ngFor="let pokemon of pokemonList?.results; index as i">
+		<div class="card-header"
+				 [id]="pokemon.name">
+			<h2 class="mb-0">
+				<button class="btn btn-link btn-block text-left text-dark text-capitalize"
+								type="button"
+								data-toggle="collapse"
+								[attr.data-target]="'#' + pokemon.name + '-collapse'"
+								[attr.aria-controls]="'#' + pokemon.name + '-collapse'"
+								(click)="getPokemonDetails(pokemon.name)">
+					{{pokemon.name}}
+				</button>
+			</h2>
+		</div>
+
+		<div [id]="pokemon.name + '-collapse'"
+				 class="collapse"
+				 [class.show]="i === 0"
+				 [attr.aria-labelledby]="pokemon.name"
+				 data-parent="#PokemonAccordion">
+			<div class="card-body">
+				<app-pokemon *ngIf="pokemonDetails else spinner"
+										 [imageUrl]="pokemonDetails.sprites?.front_default"
+										 [pokemonName]="pokemonDetails.name"
+										 [pokemonRank]="pokemonDetails.order"
+										 [pokemonWeight]="pokemonDetails.weight"
+										 [pokemonHeight]="pokemonDetails.height"
+										 [pokemonType]="pokemonDetails.types[0].type.name"></app-pokemon>
+				<ng-template #spinner>
+					<div class="spinner-border"
+							 role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>

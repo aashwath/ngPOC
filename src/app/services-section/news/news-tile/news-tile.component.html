@@ -1,0 +1,15 @@
+<ng-template [ngIf]="!isLoading"
+						 [ngIfElse]="spinner">
+	<div class="news-tile shadow border my-4 p-4"
+			 *ngFor="let article of newsItem.articles">
+		<p class="font-weight-bold">{{article.title}}</p>
+		<p>{{article.description}}</p>
+	</div>
+</ng-template>
+
+<ng-template #spinner>
+	<div class="spinner-border"
+			 role="status">
+		<span class="sr-only">Loading...</span>
+	</div>
+</ng-template>

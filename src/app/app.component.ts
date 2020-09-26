@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'CTPoC';
+
+  get isMobile(): boolean {
+    return window.innerWidth <= 768;
+  }
+
 }
