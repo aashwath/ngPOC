@@ -1,0 +1,67 @@
+<div class="row">
+	<div class="col">
+		<form class="mx-4"
+					[formGroup]="signUpForm"
+					(ngSubmit)="onSignUp()">
+			<div class="form-group">
+				<label for="name">Your name</label>
+				<input type="text"
+							 formControlName="name"
+							 id="name"
+							 class="form-control"
+							 required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email"
+							 formControlName="email"
+							 id="email"
+							 class="form-control"
+							 placeholder="example@somewhere.com">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password"
+							 class="form-control"
+							 id="password"
+							 formControlName="password"
+							 placeholder="maximum of 8 characters"
+							 maxlength="8"
+							 required>
+				<input type="password"
+							 class="form-control"
+							 formControlName="confirmPassword"
+							 placeholder="Confirm password"
+							 maxlength="8"
+							 required>
+				<small *ngIf="signUpForm.errors?.invalidPassword"
+							 class="invalid-text">Passwords do not match</small>
+			</div>
+			<div class="form-group">
+				<label for="address">Address</label>
+				<textarea appCharLimit
+									id="address"
+									class="form-control"
+									formControlName="address"
+									placeholder="This uses a directive to check if there are more than 40 characters"></textarea>
+			</div>
+			<button type="submit"
+							class="btn btn-dark my-3"
+							[disabled]="signUpForm.invalid">Submit</button>
+			<button type="reset"
+							class="btn btn-outline-dark m-3"
+							(click)="formSubmitted = false; signUpForm.reset()">Reset</button>
+		</form>
+	</div>
+	<div class="col"
+			 *ngIf="formSubmitted">
+		<h4 class="text-center mb-3">Form submitted!</h4>
+		<p>Thanks for submitting the form <span class="font-weight-bold">{{name.value}}!</span></p>
+
+		<p class="font-weight-bold">Your email id is: <span
+						class="font-weight-normal">{{email.value}}</span></p>
+
+		<p class="font-weight-bold">Your address is: <span
+						class="font-weight-normal">{{address.value}}</span></p>
+	</div>
+</div>

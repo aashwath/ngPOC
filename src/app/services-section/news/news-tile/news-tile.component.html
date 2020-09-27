@@ -1,0 +1,7 @@
+<div class="news-tile shadow border my-4 p-4"
+		 *ngFor="let article of newsItem.results">
+	<p class="font-weight-bold mb-0">{{article.webTitle}}</p>
+	<p>{{article.sectionName}} | {{article.webPublicationDate | date}}</p>
+	<p>Click <a [href]="article.webUrl"
+			 target="_blank">here</a> to read more</p>
+</div>

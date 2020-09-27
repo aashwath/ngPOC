@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ct-angular-poc": {
+      "hosting": {
+        "CTPoC": [
+          "ct-angular-poc"
+        ]
+      }
+    }
+  }
+}
